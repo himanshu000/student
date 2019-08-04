@@ -83,8 +83,7 @@ export class DashboardComponent implements OnInit {
   }
 
   editStudent(id) {
-    console.log(id);
-    // this.router.navigate(['/student/edit', id]);
+    this.router.navigate(['/student/edit', id]);
   }
 
   addStudent() {

@@ -6,6 +6,7 @@ import { NavComponent } from './nav.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { ViewStudentComponent } from '../dashboard/view-student/view-student.component';
 import { AddStudentComponent } from '../dashboard/add-student/add-student.component';
+import { EditStudentComponent } from '../dashboard/edit-student/edit-student.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AddStudentComponent } from '../dashboard/add-student/add-student.compon
     NavComponent,
     DashboardComponent,
     ViewStudentComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    EditStudentComponent
   ],
   imports: [
     SharedModule,

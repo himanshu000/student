@@ -6,6 +6,7 @@ import { AuthGuard } from '../services/auth.guard';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { ViewStudentComponent } from '../dashboard/view-student/view-student.component';
 import { AddStudentComponent } from '../dashboard/add-student/add-student.component';
+import { EditStudentComponent } from '../dashboard/edit-student/edit-student.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: 'view/:id', component: ViewStudentComponent },
+      { path: 'edit/:id', component: EditStudentComponent },
       { path: 'add', component: AddStudentComponent },
     ]
   },
