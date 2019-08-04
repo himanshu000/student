@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NavComponent } from './nav.component';
 import { AuthGuard } from '../services/auth.guard';
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { ViewStudentComponent } from '../dashboard/view-student/view-student.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,14 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: '', component: DashboardComponent }
+    ]
+  },
+  {
+    path: 'student',
+    component: NavComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: 'view/:id', component: ViewStudentComponent },
     ]
   },
   {path: '**', redirectTo: 'dashboard'}
