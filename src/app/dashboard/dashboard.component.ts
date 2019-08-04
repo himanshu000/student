@@ -88,8 +88,7 @@ export class DashboardComponent implements OnInit {
   }
 
   addStudent() {
-    console.log('test');
-    // this.router.navigate(['/student/add']);
+    this.router.navigate(['/student/add']);
   }
 
   deleteStudent(id) {
