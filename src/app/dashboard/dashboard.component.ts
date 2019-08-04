@@ -32,6 +32,8 @@ export class DashboardComponent implements OnInit {
     {value: 'domestic', viewValue: 'Domestic'},
     {value: 'international', viewValue: 'International'}
   ];
+  filteredData: Student[];
+  studentKey = '';
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -51,21 +53,27 @@ export class DashboardComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-    this.dataSource = new MatTableDataSource<Student>(this.students.filter((student) => {
-      return student.name.toLowerCase().includes(filterValue.trim().toLowerCase());
-    }));
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+    this.studentKey = filterValue.trim().toLowerCase();
+    this.filterData();
   }
 
   onCategorySelection() {
-    if (this.category) {
-      this.dataSource = new MatTableDataSource<Student>(this.students.filter((student) => {
-        return student.category === this.category;
-      }));
-    } else {
-      this.dataSource = new MatTableDataSource<Student>(this.students);
+    this.filterData();
+  }
+
+  filterData() {
+    this.filteredData = this.students;
+    if (this.studentKey) {
+      this.filteredData = this.filteredData.filter((student) => {
+        return student.name.toLowerCase().includes(this.studentKey);
+      });
     }
+    if (this.category) {
+      this.filteredData = this.filteredData.filter((student) => {
+        return student.category === this.category;
+      });
+    }
+    this.dataSource = new MatTableDataSource<Student>(this.filteredData);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
@@ -96,9 +104,7 @@ export class DashboardComponent implements OnInit {
         this.studentService.deleteStudent(id).subscribe((data) => {
           this.snackBar.open('Student deleted successfully');
           this.students = data;
-          this.dataSource = new MatTableDataSource<Student>(this.students);
-          this.dataSource.sort = this.sort;
-          this.dataSource.paginator = this.paginator;
+          this.filterData();
         });
       }
       this.dialogRef = null;
