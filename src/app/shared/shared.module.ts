@@ -46,9 +46,10 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { LayoutModule } from '@angular/cdk/layout';
 
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { NamePipe } from './pipes/name.pipe';
 
 @NgModule({
-  declarations: [ConfirmationComponent],
+  declarations: [ConfirmationComponent, NamePipe],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -93,6 +94,7 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
     LayoutModule
   ],
   exports: [
+    NamePipe,
     CommonModule,
     ReactiveFormsModule,
     MatInputModule,

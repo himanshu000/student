@@ -40,7 +40,7 @@
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th class="cell-pad header-font" mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-      <td class="cell-pad" mat-cell *matCellDef="let element"> {{element.name | uppercase}} </td>
+      <td class="cell-pad" mat-cell *matCellDef="let element"> {{element.name | name}} </td>
     </ng-container>
 
     <!-- Category Column -->
@@ -58,13 +58,13 @@
     <!-- Father's Name Column -->
     <ng-container matColumnDef="fatherName">
       <th class="cell-pad header-font" mat-header-cell *matHeaderCellDef mat-sort-header> Father's Name </th>
-      <td class="cell-pad" mat-cell *matCellDef="let element"> {{element.fatherName | uppercase}} </td>
+      <td class="cell-pad" mat-cell *matCellDef="let element"> {{element.fatherName | name}} </td>
     </ng-container>
 
     <!-- Mother's Name Column -->
     <ng-container matColumnDef="motherName">
       <th class="cell-pad header-font" mat-header-cell *matHeaderCellDef mat-sort-header> Mother's Name </th>
-      <td class="cell-pad" mat-cell *matCellDef="let element"> {{element.motherName | uppercase}} </td>
+      <td class="cell-pad" mat-cell *matCellDef="let element"> {{element.motherName | name}} </td>
     </ng-container>
 
     <!-- Last Class Score Column -->
